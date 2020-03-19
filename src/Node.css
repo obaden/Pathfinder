@@ -1,0 +1,95 @@
+th {
+  display: table-cell;
+  width: 1.6vw;
+  height: 1.6vw;
+  border: 1px solid lightskyblue;
+}
+
+.Wall {
+  background-color: #201e50;
+  border: none;
+  animation-name: bubble;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+
+.currentVisit {
+  background-color: #3feee6;
+  animation-name: visit;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+
+.Visited {
+  background-color: #3feee6;
+}
+
+.Path {
+  background-color: #db324d;
+  border: none;
+}
+
+.Start {
+  background-color: #33ff00;
+  border: none;
+}
+
+.Finish {
+  background-color: #ff2a00;
+  border: none;
+}
+
+@keyframes bubble {
+  0% {
+    transform: scale(0.2);
+    /* border-radius: 100%; */
+    background-color: #85849f;
+  }
+  25% {
+    transform: scale(0.5);
+    /* background-color: #91b39a; */
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  75% {
+    transform: scale(1.2);
+    background-color: #12112c;
+  }
+  100% {
+    scale: 1;
+    background-color: #201e50;
+  }
+}
+
+@keyframes visit {
+  0% {
+    transform: scale(0.2);
+    border-radius: 50%;
+    background-color: #cafafe;
+  }
+  25% {
+    transform: scale(0.7);
+    border-radius: 30%;
+  }
+
+  50% {
+    transform: scale(0.9);
+    border-radius: 5%;
+    background-color: #6610f2;
+  }
+
+  75% {
+    transform: scale(1.1);
+    border-radius: 20%;
+    /* background-color: #8cb8e6; */
+  }
+
+  100% {
+    transform: scale(1);
+    border-radius: 0%;
+    background-color: #3feee6;
+  }
+}

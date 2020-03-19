@@ -1,0 +1,42 @@
+table {
+  padding-top: 50px;
+  border-collapse: collapse;
+}
+
+.Visualizer {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  background-color: white;
+}
+
+/* button {
+  width: 200px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: blue;
+  color: white;
+  margin: 0 15px;
+} */
+
+.Menu {
+  margin-bottom: 30px;
+}
+
+body {
+  padding: 50px;
+}
+
+.control {
+  padding: 10px 40px;
+  border-radius: 5px;
+  background-color: aquamarine;
+  color: white;
+  margin: 0 15px;
+  /* border: none; */
+}
