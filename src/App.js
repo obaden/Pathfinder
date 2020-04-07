@@ -28,7 +28,7 @@ export default class App extends React.Component {
       solving: false,
       start: DEFAULT_START.slice(),
       finish: DEFAULT_FINISH.slice(),
-      grid: this.CreateEmptyBoard(25, 50)
+      grid: this.CreateEmptyBoard(25, 50),
     };
   }
 
@@ -60,7 +60,7 @@ export default class App extends React.Component {
       movingFinish: false,
       movingStart: false,
       placingWall: false,
-      removingWall: false
+      removingWall: false,
     });
   };
 
@@ -109,7 +109,7 @@ export default class App extends React.Component {
   };
 
   // Solve Board based on method in state.
-  startSolving = solveSpeed => {
+  startSolving = (solveSpeed) => {
     // remove previous visited nodes
 
     // if solve speed is not zero, set solving to true which disables input.
@@ -152,12 +152,12 @@ export default class App extends React.Component {
 
     // if solve speed is 0, solve without delay by just setting all nodes to the correct class
     if (solveSpeed === 0) {
-      Visited.forEach(node => {
+      Visited.forEach((node) => {
         document
           .getElementById(`node ${node.row} ${node.col}`)
           .classList.add("Visited");
       });
-      solved.pathInOrder.forEach(node => {
+      solved.pathInOrder.forEach((node) => {
         document
           .getElementById(`node ${node.row} ${node.col}`)
           .classList.add("Path");
@@ -182,8 +182,8 @@ export default class App extends React.Component {
 
   // Goes over every node and removes classes that represent solving process.
   clearPath = () => {
-    this.state.grid.forEach(row => {
-      row.forEach(node => {
+    this.state.grid.forEach((row) => {
+      row.forEach((node) => {
         let div = document.getElementById(`node ${node.row} ${node.col}`);
         div.classList.remove("Visited");
         div.classList.remove("Path");
@@ -231,7 +231,7 @@ export default class App extends React.Component {
       solved: false,
       solving: false,
       start: DEFAULT_START.slice(),
-      finish: DEFAULT_FINISH.slice()
+      finish: DEFAULT_FINISH.slice(),
     });
     this.clearPath();
   };
@@ -245,7 +245,7 @@ export default class App extends React.Component {
           <select
             id="algorithm"
             disabled={this.state.solving}
-            onChange={e => {
+            onChange={(e) => {
               this.setState({ solveMethod: Number(e.target.value) });
             }}>
             <option default value={ALGORITHMS.DIJKSTRA}>
@@ -260,7 +260,7 @@ export default class App extends React.Component {
           <select
             id="speed"
             disabled={this.state.solving}
-            onChange={e => {
+            onChange={(e) => {
               this.setState({ solveSpeed: Number(e.target.value) });
             }}>
             <option value={50}>Slow</option>
@@ -304,6 +304,39 @@ export default class App extends React.Component {
             })}
           </tbody>
         </table>
+        <div className="Instructions">
+          <h1>Controls</h1>
+          <p>
+            The green and red nodes are the start and end nodes respectively.
+            <br></br>
+            These can be moved around freely by pressing on one with the mouse
+            button, holding it down and dragging the node to another position.
+          </p>
+          <img
+            src="./images/moveStart.gif"
+            alt="animation of moving start around"></img>
+          <p>
+            We can also create walls by clicking and dragging from any node that
+            isn't the start or finish node.<br></br>
+            Walls can be removed in the same way, by clicking and dragging from
+            a wall node instead
+          </p>
+          <img src="./images/walls.gif" alt="placing and removing walls"></img>
+
+          <p>
+            After you are happy with how the grid is set up, select an algorithm
+            and a solve speed from the dropdown menus at the top and then hit{" "}
+            <b>Start Solving</b>
+          </p>
+
+          <p>
+            After solving, moving the start and end nodes will cause the new
+            path to be recalculated in real time
+          </p>
+          <img src="./images/movePath.gif" alt="recalculating path"></img>
+
+          <p></p>
+        </div>
       </div>
     );
   }
@@ -322,6 +355,6 @@ const createNode = (row, col) => {
     distance: null,
     previousEnd: null,
     endDistance: null,
-    h: null
+    h: null,
   };
 };

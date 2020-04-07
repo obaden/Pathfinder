@@ -4,7 +4,6 @@ table {
 }
 
 .Visualizer {
-  padding-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +27,10 @@ body {
   margin-bottom: 30px;
 }
 
+p {
+  font-size: 1.2em;
+}
+
 body {
   padding: 50px;
 }
@@ -36,7 +39,7 @@ body {
   padding: 10px 40px;
   border-radius: 5px;
   background-color: aquamarine;
-  color: white;
+  color: black;
   margin: 0 15px;
   /* border: none; */
 }
